@@ -1,0 +1,63 @@
+@use 'sass:map';
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
+
+$colors: (
+  white: hsl(0, 0%, 100%),
+  lightGray: hsl(212, 45%, 89%),
+  grayishBlue: hsl(220, 15%, 55%),
+  darkBlue: hsl(218, 44%, 22%),
+);
+
+@function color($color) {
+  @return map.get($colors, $color);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  height: 100svh;
+  justify-content: center;
+  align-items: center;
+  background-color: color(lightGray);
+
+  font-family: 'Outfit', sans-serif;
+}
+
+.card {
+  background-color: color(white);
+  height: 730px;
+  width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  border-radius: 25px;
+
+  &__qr-code {
+    width: 430px;
+    height: 430px;
+
+    margin-top: 18px;
+
+    border-radius: 10px;
+  }
+
+  &__body {
+    text-align: center;
+
+    margin: 0 45px 0 45px;
+
+    &__title {
+      color: color(darkBlue);
+      font-weight: 700;
+    }
+
+    &__paragraph {
+      color: color(grayishBlue);
+      font-weight: 400;
+      font-size: 25px;
+    }
+  }
+}
